@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy - E-commerce App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#2563EB',
+                        accent: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item {
+            transition: background-color 0.2s ease;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-primary">ShopEasy</a>
+                    <div class="hidden md:flex ml-10 space-x-8">
+                        <a href="#" class="text-dark hover:text-primary">Home</a>
+                        <a href="#" class="text-dark hover:text-primary">Products</a>
+                        <a href="#" class="text-dark hover:text-primary">Categories</a>
+                        <a href="#" class="text-dark hover:text-primary">Deals</a>
+                        <a href="#" class="text-dark hover:text-primary">About</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#" class="text-dark hover:text-primary">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="dropdown relative">
+                        <a href="#" class="text-dark hover:text-primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="absolute -top-2 -right-2 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                        </a>
+                        <div class="dropdown-menu hidden absolute right-0 mt-2 w-80 bg-white rounded-md shadow-lg py-2 z-10">
+                            <div class="px-4 py-2 border-b">
+                                <p class="text-sm font-medium">Cart Items (3)</p>
+                            </div>
+                            <div class="max-h-60 overflow-y-auto">
+                                <div class="cart-item px-4 py-3 flex border-b">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://via.placeholder.com/60" alt="Product" class="h-12 w-12 rounded-md object-cover">
+                                    </div>
+                                    <div class="ml-4 flex-1">
+                                        <p class="text-sm font-medium">Wireless Headphones</p>
+                                        <p class="text-xs text-gray-500">Qty: 1</p>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-primary">$99.99</p>
+                                    </div>
+                                </div>
+                                <div class="cart-item px-4 py-3 flex border-b">
+                                    <div class="flex-shrink-0">
+                                        <img src="https://via.placeholder.com/60" alt="Product" class="h-12 w-12 rounded-md object-cover">
+                                    </div>
+                                    <div class="ml-4 flex-1">
+                                        <p class="text-sm font-medium">Smart Watch</p>
+                                        <p class="text-xs text-gray-500">Qty: 2</p>
+                                    </div>
+                                    <div class="ml-4">
+                                        <p class="text-sm font-medium text-primary">$199.98</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-4 py-3 border-t">
+                                <div class="flex justify-between items-center mb-2">
+                                    <p class="text-sm">Subtotal:</p>
+                                    <p class="text-sm font-medium">$299.97</p>
+                                </div>
+                                <a href="#" class="block w-full bg-primary text-white text-center py-2 rounded-md hover:bg-secondary">View Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="bg-primary text-white px-4 py-2 rounded-md hover:bg-secondary">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Summer Sale Up To 50% Off</h1>
+                    <p class="text-xl mb-6">Get the latest products with amazing discounts. Limited time offer!</p>
+                    <a href="#" class="bg-white text-primary px-6 py-3 rounded-md font-medium hover:bg-gray-100">Shop Now</a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://via.placeholder.com/500x300" alt="Hero Image" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Featured Products</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-accent text-white text-xs px-2 py-1 rounded">Sale</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Wireless Headphones</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-2">(142)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-lg font-bold text-primary">$99.99</p>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-secondary">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Smart Watch Series 5</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-2">(87)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-lg font-bold text-primary">$199.99</p>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-secondary">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded">Hot</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Bluetooth Speaker</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-2">(205)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-lg font-bold text-primary">$79.99</p>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-secondary">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Card -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/300x200" alt="Product" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-medium mb-1">Wireless Earbuds</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-xs text-gray-500 ml-2">(168)</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <p class="text-lg font-bold text-primary">$129.99</p>
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-secondary">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-md hover:bg-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Shop By Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="#" class="category-card bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+                    <div class="bg-blue-100 text-primary p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-mobile-alt text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Electronics</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+                    <div class="bg-green-100 text-accent p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-tshirt text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Clothing</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+                    <div class="bg-yellow-100 text-yellow-600 p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-home text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Home & Kitchen</h3>
+                </a>
+                <a href="#" class="category-card bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow">
+                    <div class="bg-purple-100 text-purple-600 p-4 rounded-full inline-block mb-4">
+                        <i class="fas fa-heartbeat text-2xl"></i>
+                    </div>
+                    <h3 class="font-medium">Health & Beauty</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The shopping experience was fantastic! Fast delivery and great customer service. Will definitely shop again."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" alt="Customer" class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-medium">Sarah Johnson</p>
+                            <p class="text-sm text-gray-500">New York</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"The product quality exceeded my expectations. The website is easy to navigate and the checkout was seamless."</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" alt="Customer" class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-medium">Michael Chen</p>
+                            <p class="text-sm text-gray-500">San Francisco</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="flex text-yellow-400 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4">"I love the fast shipping and the product was exactly as described. The prices are very competitive too!"</p>
+                    <div class="flex items-center">
+                        <img src="https://via.placeholder.com/40" alt="Customer" class="h-10 w-10 rounded-full mr-3">
+                        <div>
+                            <p class="font-medium">Emma Rodriguez</p>
+                            <p class="text-sm text-gray-500">Chicago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-12 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+            <p class="text-lg mb-6">Get the latest updates on new products and upcoming sales</p>
+            <form class="max-w-md mx-auto flex flex-col md:flex-row gap-2">
+                <input type="email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-md text-dark focus:outline-none">
+                <button type="submit" class="bg-accent px-6 py-3 rounded-md hover:bg-green-500">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ShopEasy</h3>
+                    <p class="text-gray-400">Your one-stop shop for all your needs. Quality products at affordable prices.</p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Categories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Refunds</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">Contact Us</h4>
+                    <address class="text-gray-400 not-italic">
+                        <p>123 Commerce Street</p>
+                        <p>New York, NY 10001</p>
+                        <p class="mt-2">Email: info@shopeasy.com</p>
+                        <p>Phone: (123) 456-7890</p>
+                    </address>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 ShopEasy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartButtons = document.querySelectorAll('.product-card button');
+            
+            cartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productCard = this.closest('.product-card');
+                    const productName = productCard.querySelector('h3').textContent;
+                    const productPrice = productCard.querySelector('.text-primary').textContent;
+                    
+                    alert(`Added to cart: ${productName} - ${productPrice}`);
+                });
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    alert(`Thank you for subscribing with: ${emailInput.value}`);
+                    emailInput.value = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

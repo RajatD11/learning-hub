@@ -1,0 +1,27 @@
+How to Run the Project
+Set up the database:
+
+Install PostgreSQL
+
+Create a database named shopeasy_db
+
+Run the provided SQL schema to create tables
+
+Set up the backend:
+
+Navigate to the backend directory
+
+Run npm install to install dependencies
+
+Create a .env file with your database credentials and JWT secret
+
+Run node server.js to start the server
+
+Set up the frontend:
+
+The provided HTML file can be directly opened in a browser for demonstration
+
+For a production React app, you would use create-react-app and build the components
+
+This implementation demonstrates a complete e-commerce application with responsive design, JWT authentication, and RESTful APIs. You can expand it by adding more features like payment integration, order tracking, and admin dashboard.
+
