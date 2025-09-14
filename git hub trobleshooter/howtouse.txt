@@ -1,0 +1,21 @@
+How to Use This Troubleshooter
+
+This HTML page provides a comprehensive guide to diagnose and fix the issue of empty files after pushing to Git. It includes:
+
+Common causes of the problem
+
+Step-by-step solutions with Git commands
+
+A simulation of a successful Git workflow
+
+Prevention tips to avoid the issue in the future
+
+To use this tool, simply open the HTML file in your browser and follow the instructions. The page includes copy-paste ready Git commands that you can use in your terminal to diagnose and fix the issue.
+
+The most common solution is to:
+
+Verify your files are properly added with git add
+
+Check that they're not excluded by .gitignore
+
+Commit and push again
