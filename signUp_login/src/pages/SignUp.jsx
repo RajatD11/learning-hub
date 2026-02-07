@@ -12,12 +12,13 @@ export const SignUp = ()=>{
     function handleChange(e){
         setForm({
             ...form,
-            [e.target.placeholder]:e.target.value
+            [e.target.name]:e.target.value
         })
     }
 
-    function handleSubmit(){
-        alert('Submitted')
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log('Form data:', form)
     }
     return(
         <div className='container'>
@@ -25,17 +26,20 @@ export const SignUp = ()=>{
             <h1>Sign In</h1>
             <form onSubmit={handleSubmit}>
             <input type="text" 
+            name='username'
             placeholder='Username' 
             onChange={handleChange}
             value={form.username}
             required/>
             <input type="password" 
             placeholder='Password' 
+            name='password'
             onChange={handleChange}
             value={form.password}
             required/>
             <input type="text" 
             placeholder='email' 
+            name='email'
             onChange={handleChange}
             value={form.email}
             required/>
