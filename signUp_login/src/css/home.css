@@ -1,0 +1,37 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: lightpink;
+  gap: 30px;
+}
+
+.home h1{
+    font-size: 90px;
+    color: red;
+    margin: black;
+    font-display: fallback;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.3);
+    border: whitesmoke solid 8px;
+    border-radius: 10px;
+}
+
+.home button{
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 80px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease;
+    display: flex;
+}
+
+.home button:hover {
+  background-color: lightgreen;
+  transform: scale(1.05);
+}
