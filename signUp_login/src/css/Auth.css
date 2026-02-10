@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000000;
+}
+
+.login {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  background-color: #e91e63;
+  transform: rotate(-45deg);
+  box-shadow: 0 20px 60px rgba(233, 30, 99, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login::before,
+.login::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: #e91e63;
+  border-radius: 50%;
+}
+
+.login::before {
+  top: -175px;
+  left: 0;
+}
+
+.login::after {
+  left: 175px;
+  top: 0;
+}
+
+.login > div {
+  transform: rotate(45deg);
+  z-index: 10;
+  position: relative;
+  width: 280px;
+  text-align: center;
+  margin-top: -40px; /* ✅ Adjusted to center content better */
+  max-height: 380px; /* ✅ Prevents overflow */
+  overflow: visible; /* ✅ Changed from hidden to show all content */
+}
+
+.login h1 {
+  color: #ffffff;
+  font-size: 26px; /* ✅ Reduced size slightly */
+  margin-bottom: 12px; /* ✅ Reduced spacing */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* ✅ Reduced gap for compact layout */
+}
+
+.login input {
+  width: 100%;
+  padding: 9px 16px; /* ✅ Reduced padding */
+  border: none;
+  border-radius: 25px;
+  font-size: 13px; /* ✅ Slightly smaller font */
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #e91e63;
+}
+
+.login input:focus {
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.login input::placeholder {
+  color: #e91e63;
+  opacity: 0.7;
+}
+
+.login button {
+  width: 100%;
+  padding: 9px; /* ✅ Reduced padding */
+  background-color: #ffffff;
+  color: #e91e63;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px; /* ✅ Slightly smaller */
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3px; /* ✅ Reduced margin */
+  transition: all 0.3s ease;
+}
+
+.login button:hover {
+  background-color: #fff0f5;
+  transform: scale(1.05);
+}
+
+/* Toggle text styling */
+.toggle-text {
+  color: #ffffff;
+  font-size: 12px; /* ✅ Made smaller */
+  margin-top: 10px; /* ✅ Reduced margin */
+  line-height: 1.4;
+}
+
+.toggle-link {
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-link:hover {
+  opacity: 0.8;
+}
